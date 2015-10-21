@@ -1,0 +1,2 @@
+# QuickMem
+stub

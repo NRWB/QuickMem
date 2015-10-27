@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Notecard page</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/notecard.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <!-- Search bar -->
+    <!-- <div id="search" class="container">
+      <div class="row">
+        <div id="custom-search-input">
+          <div class="input-group col-md-12">
+            <input type="text" class="  search-query form-control" placeholder="Search" />
+            <span class="input-group-btn">
+              <button class="btn btn-danger" type="button">
+                <span class=" glyphicon glyphicon-search"></span>
+              </button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <button class="btn btn-default btn-lg" type="submit"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span> Back</button>
+    <div id="notecard">
+      <div class="container">
+          <p id="note_content">This is where the question/answer would go.  The below animation could be used to show that the notecard is loading</p>
+          <div id="loading">
+            <ul class="bokeh">
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </div>
+      </div>
+      <button id="success_btn" type="button" class="btn btn-success btn-circle"><i class="glyphicon glyphicon-ok"></i></button>
+      <button id="fail_btn" type="button" class="btn btn-danger btn-circle"><i class="glyphicon glyphicon-remove"></i></button>
+    </div>
+    <div id="btn_card_group" class="container">
+      <a class="btn icon-btn btn-muted btn-lg" href="#"><span class="glyphicon btn-glyphicon glyphicon-arrow-left img-circle text-muted"></span>Previous</a>
+      <a class="btn icon-btn btn-warning btn-lg" href="#"><span class="glyphicon btn-glyphicon glyphicon-share-alt img-circle text-warning"></span>Flip</a>
+      <a id="nextBtn" class="btn icon-btn btn-muted btn-lg" href="#">Next<span class="glyphicon btn-glyphicon glyphicon-arrow-right img-circle text-muted"></span></a>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

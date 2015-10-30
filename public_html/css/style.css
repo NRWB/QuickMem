@@ -14,7 +14,7 @@ and open the template in the editor.
 /* set global font to Open Sans */
 body {
   font-family: 'Open Sans', 'sans-serif';
-  background-image: url(http://benague.ca/files/pw_pattern.png);
+  background-image: url();
 }
 
 /* css for title */
@@ -39,7 +39,7 @@ h1 {
 }
 
 /* css for the shiny buttons */
-.btn {
+.btn2 {
   cursor: pointer;
   margin: 10px;
   border-radius: 5px;
@@ -52,12 +52,13 @@ h1 {
   -o-transition: .3s;
   display: inline-block;
 }
+
 .buttonsize{
     width: 15em;  height: 2em;
     
 }
 .btn:hover {
-  cursor: url(http://cur.cursors-4u.net/symbols/sym-1/sym46.cur), auto;
+  cursor: url(), auto;
 }
 .blue {
   color: #55acee;

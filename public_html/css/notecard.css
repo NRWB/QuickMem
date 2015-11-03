@@ -37,6 +37,13 @@
 	border-radius:50px;
 }
 
+/*Difficulty rating*/
+.rating {
+    position: absolute;
+    bottom: 3%;
+    left: 30%;
+}
+
 /*Buttons within Notecard*/
 .btn-circle {
   width: 30px;

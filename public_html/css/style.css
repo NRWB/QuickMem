@@ -18,7 +18,7 @@ body {
 }
 
 /* css for title */
-h1 {
+#title {
   color: #55acee;
   text-align: center;
 }
@@ -121,7 +121,7 @@ h1 {
 }
 
 .buttons {
-  padding-top: 30px;
+  /*padding-top: 30px;*/
   text-align: center;
 }
 
@@ -130,4 +130,9 @@ p {
   text-align: center;
   color: #55acee;
   padding-top: 20px;
+}
+
+.hidden {
+  display: none !important;
+  visibility: hidden !important;
 }

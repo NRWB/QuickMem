@@ -21,7 +21,7 @@
   </head>
   <body>
     <!-- Search bar -->
-    <div id="search" class="container">
+    <!-- <div id="search" class="container">
       <div class="row">
         <div id="custom-search-input">
           <div class="input-group col-md-12">
@@ -34,11 +34,13 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <button class="btn btn-default btn-lg" type="submit"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span> Back</button>
+    <h1 id = "title"></h1>
     <div id="notecard">
       <div class="container">
-          <p id="note_content">This is where the question/answer would go.  The below animation could be used to show that the notecard is loading</p>
+          <p id="type"></p>
+          <p id="note_content"></p>
           <div id="loading">
             <ul class="bokeh">
               <li></li>
@@ -60,7 +62,7 @@
     </div>
     <div id="btn_card_group" class="container">
       <a class="btn icon-btn btn-muted btn-lg" href="#"><span class="glyphicon btn-glyphicon glyphicon-arrow-left img-circle text-muted"></span>Previous</a>
-      <a class="btn icon-btn btn-warning btn-lg" href="#"><span class="glyphicon btn-glyphicon glyphicon-share-alt img-circle text-warning"></span>Flip</a>
+      <a id="flipBtn" class="btn icon-btn btn-warning btn-lg"><span class="glyphicon btn-glyphicon glyphicon-share-alt img-circle text-warning"></span>Flip</a>
       <a id="nextBtn" class="btn icon-btn btn-muted btn-lg" href="#">Next<span class="glyphicon btn-glyphicon glyphicon-arrow-right img-circle text-muted"></span></a>
     </div>
 

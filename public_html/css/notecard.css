@@ -1,7 +1,7 @@
 #notecard {
 	border: 1px solid black;
 	width: 90%;
-	height: 400px;
+	height: 350px;
 	margin: 0 auto;
 	margin-top: 10%;
 	position: relative;
@@ -33,7 +33,7 @@
 }
 
 .icon-btn { 
-	padding: 1px 15px 3px 2px; 
+	padding: 1px 10px 3px 2px; 
 	border-radius:50px;
 }
 

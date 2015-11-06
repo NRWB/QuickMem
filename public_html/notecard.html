@@ -5,11 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Notecard page</title>
-
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/notecard.css" rel="stylesheet">
+    <title>Notecards</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/notecard.css">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -18,25 +20,22 @@
     <![endif]-->
     <script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
     <script type="text/javascript" src="js/notecard.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/firebase.js"></script>
   </head>
   <body>
-    <!-- Search bar -->
-    <!-- <div id="search" class="container">
-      <div class="row">
-        <div id="custom-search-input">
-          <div class="input-group col-md-12">
-            <input type="text" class="  search-query form-control" placeholder="Search" />
-            <span class="input-group-btn">
-              <button class="btn btn-danger" type="button">
-                <span class=" glyphicon glyphicon-search"></span>
-              </button>
-            </span>
-          </div>
-        </div>
-      </div>
-    </div> -->
+  
+    <div class="panel panel-header">
+	  <div class="container">
+	    <p>
+	      QuickMem
+  		</p>
+  	  </div>
+  	</div>
+	
     <button class="btn btn-default btn-lg" type="submit"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span> Back</button>
-    <h1 id = "title"></h1>
+
     <div id="notecard">
       <div class="container">
           <p id="type"></p>

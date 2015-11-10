@@ -31,11 +31,8 @@ function toCategory(topic) {
 		a.className = "btn2 blue buttonsize";
 		a.innerHTML = subtopic;
 		a.onclick = function() {
-			myFirebaseRef.child("globalVar").update({
-				id,
-				subtopic,
-				topic
-			});
+			var testObject = { 'id': id, 'subtopic': subtopic, 'topic': topic };
+			localStorage.setItem('globalVar', JSON.stringify(testObject));
 			window.location = "notecard.html";
 		};
 		div.appendChild(a);

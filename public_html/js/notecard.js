@@ -40,19 +40,27 @@ function flipCard() {
 }
 
 function nextCard() {
-	var category = index.slice(0, -1);
-	var num = index.slice(-1);
+	var currentIndex = index;
+	var category = currentIndex.slice(0, -1);
+	var num = currentIndex.slice(-1);
 	num = parseInt(num);
 	num += 1;
-	index = category + num.toString();
-	flipCard();
+	currentIndex = category + num.toString();
+	if (cards[currentIndex] != undefined) {
+		index = currentIndex;
+		flipCard();
+	}
 }
 
 function prevCard() {
-	var category = index.slice(0, -1);
-	var num = index.slice(-1);
+	var currentIndex = index;
+	var category = currentIndex.slice(0, -1);
+	var num = currentIndex.slice(-1);
 	num = parseInt(num);
 	num -= 1;
-	index = category + num.toString();
-	flipCard();	
+	currentIndex = category + num.toString();
+	if (cards[currentIndex] != undefined) {
+		index = currentIndex;
+		flipCard();
+	}
 }

@@ -1,19 +1,21 @@
+// Function loads onclick button events
 window.onload = function() {
 	document.getElementById('flipBtn').onclick = flipCard;
 	document.getElementById('nextBtn').onclick = nextCard;
 	document.getElementById('prevBtn').onclick = prevCard;
+	document.getElementById("myButton").onclick = clearArray;
 }
 
+//Global variables
 var myFirebaseRef = new Firebase("https://quickmem.firebaseio.com/");
 var pageData;
 var cards;
 var lower_topic;
 var index;
-
 var data = JSON.parse(localStorage.getItem('globalVar'));
-console.log(data);
-
 var lower_topic = data['subtopic'].toLowerCase();
+
+//Loads first card
 myFirebaseRef.child("notecards/" + data['id']).once("value", function(snap) {
 	index = lower_topic + "1";
 	document.getElementById("title").innerHTML = data['subtopic'];
@@ -23,6 +25,7 @@ myFirebaseRef.child("notecards/" + data['id']).once("value", function(snap) {
 	document.getElementById('note_content').innerHTML = cards[index].front;
 });
 
+//Flips card to reveal other side
 function flipCard() {
 	var content = document.getElementById('note_content').innerHTML;
 	console.log(cards[index]);
@@ -39,6 +42,7 @@ function flipCard() {
 	}
 }
 
+//Shows next card
 function nextCard() {
 	var currentIndex = index;
 	var category = currentIndex.slice(0, -1);
@@ -52,6 +56,7 @@ function nextCard() {
 	}
 }
 
+//Shows previous card
 function prevCard() {
 	var currentIndex = index;
 	var category = currentIndex.slice(0, -1);
@@ -63,4 +68,17 @@ function prevCard() {
 		index = currentIndex;
 		flipCard();
 	}
+}
+
+//Clears stack variable that is stored in local storage so that the main categories page can load
+function clearArray() {
+	var arr = localStorage.getItem('firebase');
+    var data = JSON.parse(arr);
+    for (var i = data.path.length - 1; i > 0; i--) {
+        if (data.path[i] != 'categories') {
+          	data.path.pop();
+        }
+    }
+    localStorage.setItem('firebase', JSON.stringify(data));
+    location.href = "index.html";
 }

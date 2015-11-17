@@ -1,7 +1,7 @@
 //Loads button click events and determines which data to load depending on stack contents
 window.onload = function() {
 	document.getElementById("myButton").onclick = clearArray;
-	if (data.path[1] == undefined) {
+	if (!data || data.path[1] == undefined) {
 		loadCategories();
 	} else {
 		toCategory(data.path[2]);
@@ -10,7 +10,7 @@ window.onload = function() {
 
 //Global variables
 var myFirebaseRef = new Firebase("https://quickmem.firebaseio.com/");
-var data = JSON.parse(localStorage.getItem('firebase'));
+var data = JSON.parse(sessionStorage.firebase);
 
 //Loads and displays main categories
 function loadCategories() {
@@ -43,7 +43,7 @@ function toCategory(topic) {
 	data['path'].push('subtopics');
 	data['path'].push(topic);
 	console.log(data);
-	localStorage.setItem('firebase', JSON.stringify(data));
+	sessionStorage.firebase = JSON.stringify(data);
 	myFirebaseRef.child(path).on("child_added", function(snap) {
 		var subtopic = snap.val();
 		var id = topic_lower + i;
@@ -70,14 +70,14 @@ function clearButtons(div) {
 
 //Clears stack data so that the page can re-load main categories
 function clearArray() {
-	var arr = localStorage.getItem('firebase');
+	var arr = sessionStorage.firebase;
     var data = JSON.parse(arr);
     for (var i = data.path.length - 1; i > 0; i--) {
         if (data.path[i] != 'categories') {
           	data.path.pop();
         }
     }
-    localStorage.setItem('firebase', JSON.stringify(data));
+    sessionStorage.firebase = JSON.stringify(data);
     var div = document.getElementById('buttonGroup');
     clearButtons(div);
     document.getElementById('title').innerHTML = '';

@@ -35,7 +35,7 @@ function initializeCard() {
 //Flips card to reveal other side
 function flipCard() {
 	var content = document.getElementById('note_content').innerHTML;
-	content = content.replace("&amp;", "&").replace("&gt;", ">").replace("&lt;", "<");
+	content = content.replace(/&amp;/g, "&").replace(/&gt;/g, ">").replace(/&lt;/g, "<");
 	console.log(content);
 	console.log(cards[index]);
 	if (cards[index] != undefined) {

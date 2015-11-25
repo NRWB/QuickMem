@@ -1,6 +1,8 @@
 //Loads button click events and determines which data to load depending on stack contents
 window.onload = function() {
 	document.getElementById("myButton").onclick = clearArray;
+	// document.getElementById('search').onclick = whichSearch;
+
 	if (!data || data.path[1] == undefined) {
 		loadCategories();
 	} else {
@@ -15,11 +17,14 @@ var data = JSON.parse(sessionStorage.firebase);
 //Loads and displays main categories
 function loadCategories() {
 	myFirebaseRef.child("categories").on("child_added", function(snapshot) {
+    	console.log(snapshot.val());
 		var topic = snapshot.val();
 		var div = document.getElementById('buttonGroup');
 		var a = document.createElement('a');
 		a.className = "btn2 blue buttonsize";
-		a.onclick = function() { 
+		a.onclick = function() {
+			// console.log(data);
+			// data.path.push('subtopics');
 			toCategory(topic);
 		};
 		a.innerHTML = topic;
@@ -83,3 +88,12 @@ function clearArray() {
     document.getElementById('title').innerHTML = '';
     loadCategories();
 }
+
+// function whichSearch() {
+// 	console.log(data);
+// 	if (!data || data.path[1] == undefined) {
+// 		console.log("")
+// 	} else {
+// 		toCategory(data.path[2]);
+// 	}
+// }

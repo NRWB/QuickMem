@@ -35,6 +35,8 @@ function initializeCard() {
 //Flips card to reveal other side
 function flipCard() {
 	var content = document.getElementById('note_content').innerHTML;
+	content = content.replace("&amp;", "&").replace("&gt;", ">").replace("&lt;", "<");
+	console.log(content);
 	console.log(cards[index]);
 	if (cards[index] != undefined) {
 		var front = cards[index].front;
@@ -60,6 +62,8 @@ function nextCard() {
 	if (cards[currentIndex] != undefined) {
 		index = currentIndex;
 		flipCard();
+	} else {
+		alert("There are no more cards in this deck!");
 	}
 }
 
@@ -74,6 +78,8 @@ function prevCard() {
 	if (cards[currentIndex] != undefined) {
 		index = currentIndex;
 		flipCard();
+	} else {
+		alert("You have reached the beginning of this deck!");
 	}
 }
 

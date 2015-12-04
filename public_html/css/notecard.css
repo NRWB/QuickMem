@@ -22,7 +22,15 @@
 }
 
 #nextBtn {
-	margin-left: 8%;
+	float: right;
+}
+
+#prevBtn {
+    float: left;
+}
+
+#flipBtn {
+    margin: 0 #nextBtn 0 #prevBtn;
 }
 
 /*Notecard Buttons*/
@@ -32,7 +40,7 @@
 	margin-right:4px; 
 }
 
-.icon-btn { 
+.icon-btn {
 	padding: 1px 10px 3px 2px; 
 	border-radius:50px;
 }

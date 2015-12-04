@@ -27,7 +27,7 @@ function initializeCard() {
 		console.log(snap.val());
 		cards = snap.val();
 		document.getElementById('type').innerHTML = "Question:";
-		document.getElementById('note_content').innerHTML = cards[index].front;
+		document.getElementById('note_content').innerHTML = cards[index].front.replace(/&amp;/g, "&").replace(/&gt;/g, ">").replace(/&lt;/g, "<").replace(/~~/g, "<br>");
 	});
 	console.log(spinner);
 }
@@ -35,18 +35,19 @@ function initializeCard() {
 //Flips card to reveal other side
 function flipCard() {
 	var content = document.getElementById('note_content').innerHTML;
-	content = content.replace(/&amp;/g, "&").replace(/&gt;/g, ">").replace(/&lt;/g, "<");
+	var side = document.getElementById('type').innerHTML;
+	//content = content.replace(/&amp;/g, "&").replace(/&gt;/g, ">").replace(/&lt;/g, "<").replace(/~~/g, "<br>");
 	console.log(content);
 	console.log(cards[index]);
 	if (cards[index] != undefined) {
 		var front = cards[index].front;
 		var back = cards[index].back;
-		if (content == front) {
+		if (side == "Question:") {
 			document.getElementById('type').innerHTML = "Answer:";
-			document.getElementById('note_content').innerHTML = back.replace(/~~/g, "<br>");
+			document.getElementById('note_content').innerHTML = back.replace(/&amp;/g, "&").replace(/&gt;/g, ">").replace(/&lt;/g, "<").replace(/~~/g, "<br>");
 		} else {
 			document.getElementById('type').innerHTML = "Question:";
-			document.getElementById('note_content').innerHTML = front.replace(/~~/g, "<br>");
+			document.getElementById('note_content').innerHTML = front.replace(/&amp;/g, "&").replace(/&gt;/g, ">").replace(/&lt;/g, "<").replace(/~~/g, "<br>");
 		}
 	}
 }
@@ -61,6 +62,7 @@ function nextCard() {
 	currentIndex = category + num.toString();
 	if (cards[currentIndex] != undefined) {
 		index = currentIndex;
+		document.getElementById('type').innerHTML = "Answer:";
 		flipCard();
 	} else {
 		alert("There are no more cards in this deck!");
@@ -77,6 +79,7 @@ function prevCard() {
 	currentIndex = category + num.toString();
 	if (cards[currentIndex] != undefined) {
 		index = currentIndex;
+		document.getElementById('type').innerHTML = "Answer:";
 		flipCard();
 	} else {
 		alert("You have reached the beginning of this deck!");

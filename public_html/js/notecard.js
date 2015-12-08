@@ -7,6 +7,12 @@ window.onload = function() {
 	document.getElementById('nextBtn').onclick = nextCard;
 	document.getElementById('prevBtn').onclick = prevCard;
 	document.getElementById("myButton").onclick = clearArray;
+	document.getElementById('rating-input-1-1').onclick = selectRating;
+	document.getElementById('rating-input-1-2').onclick = selectRating;
+	document.getElementById('rating-input-1-3').onclick = selectRating;
+	document.getElementById('rating-input-1-4').onclick = selectRating;
+	document.getElementById('rating-input-1-5').onclick = selectRating;
+	document.getElementById('compareBtn').onclick = showCompare;
 }
 
 //Global variables
@@ -18,6 +24,21 @@ var lower_topic;
 var index;
 var data = JSON.parse(localStorage.getItem('globalVar'));
 var lower_topic = data['subtopic'].toLowerCase();
+
+function selectRating() {
+	console.log(this.value);
+	document.getElementById('resultBtn').style.visibility = 'visible';
+	document.getElementById('option').innerHTML = this.value;
+	document.getElementById('compareBtn').style.visibility = 'visible';
+}
+
+function showCompare() {
+	document.getElementById('compareBtn').style.visibility = 'hidden';
+	console.log(cards);
+	var card = cards[index];
+	console.log(card);
+	
+}
 
 //Loads first card
 function initializeCard() {
@@ -54,6 +75,8 @@ function flipCard() {
 
 //Shows next card
 function nextCard() {
+	document.getElementById('compareBtn').style.visibility = 'hidden';
+	document.getElementById('resultBtn').style.visibility = 'hidden';	
 	var currentIndex = index;
 	var category = currentIndex.slice(0, -1);
 	var num = currentIndex.slice(-1);
@@ -71,6 +94,8 @@ function nextCard() {
 
 //Shows previous card
 function prevCard() {
+	document.getElementById('compareBtn').style.visibility = 'hidden';
+	document.getElementById('resultBtn').style.visibility = 'hidden';
 	var currentIndex = index;
 	var category = currentIndex.slice(0, -1);
 	var num = currentIndex.slice(-1);

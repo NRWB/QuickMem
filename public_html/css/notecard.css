@@ -45,6 +45,13 @@
   z-index: 10;
 }
 
+#expand {
+  position: absolute;
+  bottom: 1%;
+  float: right;
+  right: 1%;
+}
+
 #compareBtn {
   text-align: center;
   visibility: hidden;

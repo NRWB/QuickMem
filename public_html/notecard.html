@@ -53,6 +53,10 @@
           <button id="resultBtn" class="btn btn-success" type="button">
             You selected <span id="option" class="badge"></span>
           </button>
+          <button id="expand" type="button" class="btn btn-default" aria-label="" data-toggle="modal" data-target="#myModal">
+            <span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span>
+          </button>
+
       </div>
       
         <span class="rating">
@@ -78,6 +82,23 @@
       <a id="prevBtn" class="btn icon-btn btn-muted btn-lg"><span class="glyphicon btn-glyphicon glyphicon-arrow-left img-circle text-muted"></span>Previous</a>
       <a id="flipBtn" class="btn icon-btn btn-warning btn-lg"><span class="glyphicon btn-glyphicon glyphicon-share-alt img-circle text-warning"></span>Flip</a>
       <a id="nextBtn" class="btn icon-btn btn-muted btn-lg">Next<span class="glyphicon btn-glyphicon glyphicon-arrow-right img-circle text-muted"></span></a>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel"></h4>
+          </div>
+          <div id='modalBody' class="modal-body">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

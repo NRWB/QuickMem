@@ -109,7 +109,7 @@ function showCompare() {
 	console.log(cards);
 	var card = cards[index];
 	console.log(card);
-	
+
 }
 
 /**
@@ -128,7 +128,15 @@ function initializeCard() {
 		console.log(snap.val());
 		cards = snap.val();
 		document.getElementById('type').innerHTML = "Question:";
-		document.getElementById('note_content').innerHTML = cards[index].front.replace(/&amp;/g, "&").replace(/&gt;/g, ">").replace(/&lt;/g, "<").replace(/~~/g, "<br>");
+		document.getElementById('myModalLabel').innerHTML = "Question:";
+		var newFront = cards[index].front.replace(/&amp;/g, "&").replace(/&gt;/g, ">").replace(/&lt;/g, "<").replace(/~~/g, "<br>");
+		
+		if (newFront.length > 200) {
+			document.getElementById('note_content').innerHTML = newFront.substr(0, 200) + '...';	
+		} else {
+			document.getElementById('note_content').innerHTML = newFront;	
+		}
+		document.getElementById('modalBody').innerHTML = newFront;
 	});
 	console.log(spinner);
 }
@@ -153,10 +161,24 @@ function flipCard() {
 		var back = cards[index].back;
 		if (side == "Question:") {
 			document.getElementById('type').innerHTML = "Answer:";
-			document.getElementById('note_content').innerHTML = back.replace(/&amp;/g, "&").replace(/&gt;/g, ">").replace(/&lt;/g, "<").replace(/~~/g, "<br>");
+			document.getElementById('myModalLabel').innerHTML = "Answer:";
+			var newBack = back.replace(/&amp;/g, "&").replace(/&gt;/g, ">").replace(/&lt;/g, "<").replace(/~~/g, "<br>");
+			if (newBack.length > 200) {
+				document.getElementById('note_content').innerHTML = newBack.substr(0, 200) + '...';	
+			} else {
+				document.getElementById('note_content').innerHTML = newBack;	
+			}
+			document.getElementById('modalBody').innerHTML = newBack;
 		} else {
 			document.getElementById('type').innerHTML = "Question:";
-			document.getElementById('note_content').innerHTML = front.replace(/&amp;/g, "&").replace(/&gt;/g, ">").replace(/&lt;/g, "<").replace(/~~/g, "<br>");
+			document.getElementById('myModalLabel').innerHTML = "Question:";
+			var newFront = front.replace(/&amp;/g, "&").replace(/&gt;/g, ">").replace(/&lt;/g, "<").replace(/~~/g, "<br>");
+			if (newFront.length > 200) {
+				document.getElementById('note_content').innerHTML = newFront.substr(0, 200) + '...';	
+			} else {
+				document.getElementById('note_content').innerHTML = newFront;	
+			}
+			document.getElementById('modalBody').innerHTML = newFront;
 		}
 	}
 }

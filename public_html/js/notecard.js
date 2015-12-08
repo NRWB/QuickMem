@@ -1,6 +1,7 @@
 /**
  * @function 
  * @public
+ * @global
  * @returns NONE
  * @desc Function loads onclick button events.
  * @param NONE
@@ -22,19 +23,66 @@ window.onload = function() {
 	document.getElementById('compareBtn').onclick = showCompare;
 }
 
-//Global variables
+/**
+ * @desc NONE
+ * @global
+ * @type {Object} Firebase
+ */
 var myFirebaseRef = new Firebase("https://quickmem.firebaseio.com/");
+
+/**
+ * @desc NONE
+ * @global
+ * @type NONE
+ */
 var spinner;
+
+/**
+ * @desc NONE
+ * @global
+ * @type NONE
+ */
 var pageData;
+
+/**
+ * @desc NONE
+ * @global
+ * @type NONE
+ */
 var cards;
+
+/**
+ * @desc NONE
+ * @global
+ * @type NONE
+ */
 var lower_topic;
+
+/**
+ * @desc NONE
+ * @global
+ * @type NONE
+ */
 var index;
+
+/**
+ * @desc NONE
+ * @global
+ * @type NONE
+ */
 var data = JSON.parse(localStorage.getItem('globalVar'));
+
+/**
+ * @desc NONE
+ * @global
+ * @type NONE
+ */
 var lower_topic = data['subtopic'].toLowerCase();
 
 /**
  * @function selectRating
  * @public
+ * @global
  * @returns NONE
  * @desc NONE
  * @param NONE
@@ -50,6 +98,7 @@ function selectRating() {
 /**
  * @function showCompare
  * @public
+ * @global
  * @returns NONE
  * @desc NONE
  * @param NONE
@@ -66,6 +115,7 @@ function showCompare() {
 /**
  * @function initializeCard
  * @public
+ * @global
  * @returns NONE
  * @desc Loads first card.
  * @param NONE
@@ -86,6 +136,7 @@ function initializeCard() {
 /**
  * @function flipCard
  * @public
+ * @global
  * @returns NONE
  * @desc Flips card to reveal other side.
  * @param NONE
@@ -113,6 +164,7 @@ function flipCard() {
 /**
  * @function nextCard
  * @public
+ * @global
  * @returns NONE
  * @desc Shows next card.
  * @param NONE
@@ -139,6 +191,7 @@ function nextCard() {
 /**
  * @function prevCard
  * @public
+ * @global
  * @returns NONE
  * @desc Shows previous card.
  * @param NONE
@@ -165,6 +218,7 @@ function prevCard() {
 /**
  * @function clearArray
  * @public
+ * @global
  * @returns NONE
  * @desc Clears stack variable that is stored in local storage so that the main categories page can load.
  * @param NONE
@@ -185,6 +239,7 @@ function clearArray() {
 /**
  * @function setLoader
  * @public
+ * @global
  * @returns NONE
  * @desc NONE
  * @param NONE

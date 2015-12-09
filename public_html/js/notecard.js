@@ -4,7 +4,6 @@
  * @global
  * @returns NONE
  * @desc Function loads onclick button events.
- * @param NONE
  * @example NONE
  */
 window.onload = function() {
@@ -26,56 +25,56 @@ window.onload = function() {
 /**
  * @desc NONE
  * @global
- * @type {Object} Firebase
+ * @typedef {Object} Firebase
  */
 var myFirebaseRef = new Firebase("https://quickmem.firebaseio.com/");
 
 /**
  * @desc NONE
  * @global
- * @type NONE
+ * @typedef
  */
 var spinner;
 
 /**
  * @desc NONE
  * @global
- * @type NONE
+ * @typedef
  */
 var pageData;
 
 /**
  * @desc NONE
  * @global
- * @type NONE
+ * @typedef
  */
 var cards;
 
 /**
  * @desc NONE
  * @global
- * @type NONE
+ * @typedef
  */
 var lower_topic;
 
 /**
  * @desc NONE
  * @global
- * @type NONE
+ * @typedef
  */
 var index;
 
 /**
  * @desc NONE
  * @global
- * @type NONE
+ * @typedef
  */
 var data = JSON.parse(localStorage.getItem('globalVar'));
 
 /**
  * @desc NONE
  * @global
- * @type NONE
+ * @typedef
  */
 var lower_topic = data['subtopic'].toLowerCase();
 
@@ -84,8 +83,7 @@ var lower_topic = data['subtopic'].toLowerCase();
  * @public
  * @global
  * @returns NONE
- * @desc NONE
- * @param NONE
+ * @desc <no current desc.>
  * @example NONE
  */
 function selectRating() {
@@ -100,8 +98,7 @@ function selectRating() {
  * @public
  * @global
  * @returns NONE
- * @desc NONE
- * @param NONE
+ * @desc <no current desc.>
  * @example NONE
  */
 function showCompare() {
@@ -118,7 +115,6 @@ function showCompare() {
  * @global
  * @returns NONE
  * @desc Loads first card.
- * @param NONE
  * @example NONE
  */
 function initializeCard() {
@@ -147,7 +143,6 @@ function initializeCard() {
  * @global
  * @returns NONE
  * @desc Flips card to reveal other side.
- * @param NONE
  * @example NONE
  */
 function flipCard() {
@@ -189,7 +184,6 @@ function flipCard() {
  * @global
  * @returns NONE
  * @desc Shows next card.
- * @param NONE
  * @example NONE
  */
 function nextCard() {
@@ -216,7 +210,6 @@ function nextCard() {
  * @global
  * @returns NONE
  * @desc Shows previous card.
- * @param NONE
  * @example NONE
  */
 function prevCard() {
@@ -243,7 +236,6 @@ function prevCard() {
  * @global
  * @returns NONE
  * @desc Clears stack variable that is stored in local storage so that the main categories page can load.
- * @param NONE
  * @example NONE
  */
 function clearArray() {
@@ -263,8 +255,7 @@ function clearArray() {
  * @public
  * @global
  * @returns NONE
- * @desc NONE
- * @param NONE
+ * @desc Used for the spinner feature.
  * @example NONE
  */
 function setLoader() {

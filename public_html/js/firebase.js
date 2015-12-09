@@ -4,7 +4,6 @@
  * @global
  * @returns NONE
  * @desc Loads button click events and determines which data to load depending on stack contents.
- * @param NONE
  * @example NONE
  */
 window.onload = function() {
@@ -21,14 +20,14 @@ window.onload = function() {
 /**
  * @desc NONE
  * @global
- * @type {Object} Firebase
+ * @typedef {Object} Firebase
  */
 var myFirebaseRef = new Firebase("https://quickmem.firebaseio.com/");
 
 /**
  * @desc NONE
  * @global
- * @type {Object} 
+ * @typedef {Object} 
  */
 var data = JSON.parse(sessionStorage.firebase);
 
@@ -38,7 +37,6 @@ var data = JSON.parse(sessionStorage.firebase);
  * @global
  * @returns NONE
  * @desc Loads and displays main categories.
- * @param NONE
  * @example NONE
  */
 function loadCategories() {
@@ -64,7 +62,7 @@ function loadCategories() {
  * @global
  * @returns NONE
  * @desc Loads and displays subtopics depending on which category was selected.
- * @param NONE
+ * @param {type} topic - Etc. Etc.
  * @example NONE
  */
 function toCategory(topic) {
@@ -107,7 +105,7 @@ function toCategory(topic) {
  * @global
  * @returns NONE
  * @desc Clears buttons on page to make room for new buttons and new data.
- * @param NONE
+ * @param {type} div - Etc. Etc.
  * @example NONE
  */
 function clearButtons(div) {
@@ -122,7 +120,6 @@ function clearButtons(div) {
  * @global
  * @returns NONE
  * @desc Clears stack data so that the page can re-load main categories.
- * @param NONE
  * @example NONE
  */
 function clearArray() {
@@ -145,8 +142,7 @@ function clearArray() {
  * @public
  * @global
  * @returns NONE
- * @desc NONE
- * @param NONE
+ * @desc <no current desc.>
  * @example NONE
  */
 function whichSearch() {
@@ -163,8 +159,7 @@ function whichSearch() {
  * @public
  * @global
  * @returns NONE
- * @desc NONE
- * @param NONE
+ * @desc <no current desc.>
  * @example NONE
  */
 function categorySearch() {

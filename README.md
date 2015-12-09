@@ -14,10 +14,14 @@ Uses Firebase Bootstrap, DB, jQuery, NPM, and Spin.
 ## Contact
 Name | Email
 --- | ---
+Ankit | ankitkumar24@hotmail.com
+Caleb | caleb.dlarson@gmail.com
+David | trinhdavd@gmail.com
+Joon | jwjung224@gmail.com
+Kuo | stone3820@gmail.com
 Nick | nick.bell7@live.com
 
 ## Documentation
-<Nick to insert from his JSDoc work! ya!>
+Documentation depicting the source code of the project. This information provides code doc that has enough information. More information under the doc/out/ folder path.
 
 ## Project Setup / Install
-

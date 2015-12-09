@@ -6,11 +6,11 @@ Ankit, Caleb, David, Joon, Kuo, Nick
 ## Description
 A web application project that helps to keep computer science material memorized. Project slogan: "Keeping memorized things memorized"
 
-![alt text](http://firebase.github.io/firebase-simple-login/img/firebase_os_logo.png "Firebase Logo")
-![alt text](http://bmdm.com/wp-content/uploads/bootstrap.png "Bootstrap Logo")
-![alt text](https://pbs.twimg.com/profile_images/59268975/jquery_avatar_400x400.png "jQuery Logo")
-![alt text](https://www.npmjs.com/static/images/npm-logo.svg "npm Logo")
-![alt text](http://spin.js.org/assets/preview.jpg "Spin JS Logo")
+<img src="http://firebase.github.io/firebase-simple-login/img/firebase_os_logo.png">
+<img src="http://bmdm.com/wp-content/uploads/bootstrap.png" height="150" width="150">
+<img src="https://pbs.twimg.com/profile_images/59268975/jquery_avatar_400x400.png" height="150" width="150">
+<img src="https://www.npmjs.com/static/images/npm-logo.svg" height="300" width="100">
+<img src="http://spin.js.org/assets/preview.jpg">
 Uses Firebase, Bootstrap, jQuery, npm JS, and Spin JS.
 
 ## License

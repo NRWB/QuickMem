@@ -108,9 +108,24 @@ function selectRating() {
 function showCompare() {
 	document.getElementById('compareBtn').style.visibility = 'hidden';
 	console.log(cards);
+	var rating = document.getElementById('option').innerHTML;
 	var card = cards[index];
 	console.log(card);
-
+	var data = {
+	    labels: ["Your rating", "Average rating"],
+	    datasets: [
+	        {
+	            label: "My First dataset",
+	            fillColor: "rgba(220,220,220,0.5)",
+	            strokeColor: "rgba(220,220,220,0.8)",
+	            highlightFill: "rgba(220,220,220,0.75)",
+	            highlightStroke: "rgba(220,220,220,1)",
+	            data: [rating, card.difficulty]
+	        }
+	    ]
+	}
+	var ctx = document.getElementById("myChart").getContext("2d");
+	var myBarChart = new Chart(ctx).Bar(data);
 }
 
 /**

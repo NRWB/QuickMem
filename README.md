@@ -12,7 +12,7 @@ A web application project that helps to keep computer science material memorized
 <br>
 <img src="https://pbs.twimg.com/profile_images/59268975/jquery_avatar_400x400.png" height="150" width="150">
 <br>
-<img src="https://www.npmjs.com/static/images/npm-logo.svg" height="300" width="100">
+<img src="https://www.npmjs.com/static/images/npm-logo.svg" height="100" width="300">
 <br>
 <img src="http://spin.js.org/assets/preview.jpg">
 <br>

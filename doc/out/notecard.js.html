@@ -29,9 +29,9 @@
             <pre class="prettyprint source linenums"><code>/**
  * @function 
  * @public
+ * @global
  * @returns NONE
  * @desc Function loads onclick button events.
- * @param NONE
  * @example NONE
  */
 window.onload = function() {
@@ -50,22 +50,68 @@ window.onload = function() {
 	document.getElementById('compareBtn').onclick = showCompare;
 }
 
-//Global variables
+/**
+ * @desc NONE
+ * @global
+ * @typedef {Object} Firebase
+ */
 var myFirebaseRef = new Firebase("https://quickmem.firebaseio.com/");
+
+/**
+ * @desc NONE
+ * @global
+ * @typedef
+ */
 var spinner;
+
+/**
+ * @desc NONE
+ * @global
+ * @typedef
+ */
 var pageData;
+
+/**
+ * @desc NONE
+ * @global
+ * @typedef
+ */
 var cards;
+
+/**
+ * @desc NONE
+ * @global
+ * @typedef
+ */
 var lower_topic;
+
+/**
+ * @desc NONE
+ * @global
+ * @typedef
+ */
 var index;
+
+/**
+ * @desc NONE
+ * @global
+ * @typedef
+ */
 var data = JSON.parse(localStorage.getItem('globalVar'));
+
+/**
+ * @desc NONE
+ * @global
+ * @typedef
+ */
 var lower_topic = data['subtopic'].toLowerCase();
 
 /**
  * @function selectRating
  * @public
+ * @global
  * @returns NONE
- * @desc NONE
- * @param NONE
+ * @desc &lt;no current desc.>
  * @example NONE
  */
 function selectRating() {
@@ -78,9 +124,9 @@ function selectRating() {
 /**
  * @function showCompare
  * @public
+ * @global
  * @returns NONE
- * @desc NONE
- * @param NONE
+ * @desc &lt;no current desc.>
  * @example NONE
  */
 function showCompare() {
@@ -88,15 +134,15 @@ function showCompare() {
 	console.log(cards);
 	var card = cards[index];
 	console.log(card);
-	
+
 }
 
 /**
  * @function initializeCard
  * @public
+ * @global
  * @returns NONE
  * @desc Loads first card.
- * @param NONE
  * @example NONE
  */
 function initializeCard() {
@@ -106,7 +152,15 @@ function initializeCard() {
 		console.log(snap.val());
 		cards = snap.val();
 		document.getElementById('type').innerHTML = "Question:";
-		document.getElementById('note_content').innerHTML = cards[index].front.replace(/&amp;amp;/g, "&amp;").replace(/&amp;gt;/g, ">").replace(/&amp;lt;/g, "&lt;").replace(/~~/g, "&lt;br>");
+		document.getElementById('myModalLabel').innerHTML = "Question:";
+		var newFront = cards[index].front.replace(/&amp;amp;/g, "&amp;").replace(/&amp;gt;/g, ">").replace(/&amp;lt;/g, "&lt;").replace(/~~/g, "&lt;br>");
+		
+		if (newFront.length > 200) {
+			document.getElementById('note_content').innerHTML = newFront.substr(0, 200) + '...';	
+		} else {
+			document.getElementById('note_content').innerHTML = newFront;	
+		}
+		document.getElementById('modalBody').innerHTML = newFront;
 	});
 	console.log(spinner);
 }
@@ -114,9 +168,9 @@ function initializeCard() {
 /**
  * @function flipCard
  * @public
+ * @global
  * @returns NONE
  * @desc Flips card to reveal other side.
- * @param NONE
  * @example NONE
  */
 function flipCard() {
@@ -130,10 +184,24 @@ function flipCard() {
 		var back = cards[index].back;
 		if (side == "Question:") {
 			document.getElementById('type').innerHTML = "Answer:";
-			document.getElementById('note_content').innerHTML = back.replace(/&amp;amp;/g, "&amp;").replace(/&amp;gt;/g, ">").replace(/&amp;lt;/g, "&lt;").replace(/~~/g, "&lt;br>");
+			document.getElementById('myModalLabel').innerHTML = "Answer:";
+			var newBack = back.replace(/&amp;amp;/g, "&amp;").replace(/&amp;gt;/g, ">").replace(/&amp;lt;/g, "&lt;").replace(/~~/g, "&lt;br>");
+			if (newBack.length > 200) {
+				document.getElementById('note_content').innerHTML = newBack.substr(0, 200) + '...';	
+			} else {
+				document.getElementById('note_content').innerHTML = newBack;	
+			}
+			document.getElementById('modalBody').innerHTML = newBack;
 		} else {
 			document.getElementById('type').innerHTML = "Question:";
-			document.getElementById('note_content').innerHTML = front.replace(/&amp;amp;/g, "&amp;").replace(/&amp;gt;/g, ">").replace(/&amp;lt;/g, "&lt;").replace(/~~/g, "&lt;br>");
+			document.getElementById('myModalLabel').innerHTML = "Question:";
+			var newFront = front.replace(/&amp;amp;/g, "&amp;").replace(/&amp;gt;/g, ">").replace(/&amp;lt;/g, "&lt;").replace(/~~/g, "&lt;br>");
+			if (newFront.length > 200) {
+				document.getElementById('note_content').innerHTML = newFront.substr(0, 200) + '...';	
+			} else {
+				document.getElementById('note_content').innerHTML = newFront;	
+			}
+			document.getElementById('modalBody').innerHTML = newFront;
 		}
 	}
 }
@@ -141,9 +209,9 @@ function flipCard() {
 /**
  * @function nextCard
  * @public
+ * @global
  * @returns NONE
  * @desc Shows next card.
- * @param NONE
  * @example NONE
  */
 function nextCard() {
@@ -167,9 +235,9 @@ function nextCard() {
 /**
  * @function prevCard
  * @public
+ * @global
  * @returns NONE
  * @desc Shows previous card.
- * @param NONE
  * @example NONE
  */
 function prevCard() {
@@ -193,9 +261,9 @@ function prevCard() {
 /**
  * @function clearArray
  * @public
+ * @global
  * @returns NONE
  * @desc Clears stack variable that is stored in local storage so that the main categories page can load.
- * @param NONE
  * @example NONE
  */
 function clearArray() {
@@ -213,9 +281,9 @@ function clearArray() {
 /**
  * @function setLoader
  * @public
+ * @global
  * @returns NONE
- * @desc NONE
- * @param NONE
+ * @desc Used for the spinner feature.
  * @example NONE
  */
 function setLoader() {
@@ -253,13 +321,13 @@ function setLoader() {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#clearArray">clearArray</a></li><li><a href="global.html#flipCard">flipCard</a></li><li><a href="global.html#initializeCard">initializeCard</a></li><li><a href="global.html#nextCard">nextCard</a></li><li><a href="global.html#prevCard">prevCard</a></li><li><a href="global.html#selectRating">selectRating</a></li><li><a href="global.html#setLoader">setLoader</a></li><li><a href="global.html#showCompare">showCompare</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#clearArray">clearArray</a></li><li><a href="global.html#flipCard">flipCard</a></li><li><a href="global.html#initializeCard">initializeCard</a></li><li><a href="global.html#nextCard">nextCard</a></li><li><a href="global.html#onload">onload</a></li><li><a href="global.html#prevCard">prevCard</a></li><li><a href="global.html#selectRating">selectRating</a></li><li><a href="global.html#setLoader">setLoader</a></li><li><a href="global.html#showCompare">showCompare</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Tue Dec 08 2015 14:32:16 GMT-0800 (Pacific Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Tue Dec 08 2015 18:55:54 GMT-0800 (Pacific Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

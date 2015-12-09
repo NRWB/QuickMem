@@ -17,6 +17,7 @@ Uses Firebase, Bootstrap, jQuery, npm JS, and Spin JS.
 ## License
 <undecided, likely GNU GPL>
 ![alt text](http://www.gnu.org/graphics/heckert_gnu.small.png "LICENSE GNU GNPL Logo")
+<br>
 GNU GENERAL PUBLIC LICENSE
 See the LICENSE file for further information regarding the GNU GPL specifications.
 More on open source licenses: https://opensource.org/licenses

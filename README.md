@@ -8,14 +8,17 @@ A web application project that helps to keep computer science material memorized
 
 ![alt text](http://firebase.github.io/firebase-simple-login/img/firebase_os_logo.png "Firebase Logo")
 ![alt text](http://bmdm.com/wp-content/uploads/bootstrap.png "Bootstrap Logo")
-![alt text](http://bmdm.com/wp-content/uploads/bootstrap.png "jQuery Logo")
-Uses Firebase, Bootstrap, jQuery, NPM, and Spin.
+![alt text](https://pbs.twimg.com/profile_images/59268975/jquery_avatar_400x400.png "jQuery Logo")
+![alt text](https://www.npmjs.com/static/images/npm-logo.svg "npm Logo")
+![alt text](http://spin.js.org/assets/preview.jpg "Spin JS Logo")
+Uses Firebase, Bootstrap, jQuery, npm JS, and Spin JS.
 
 ## License
 <undecided, likely GNU GPL>
 ![alt text](http://www.gnu.org/graphics/heckert_gnu.small.png "LICENSE GNU GNPL Logo")
 GNU GENERAL PUBLIC LICENSE
 See the LICENSE file for further information regarding the GNU GPL specifications.
+More on open source licenses: https://opensource.org/licenses
 
 ## Contact
 Name | Email

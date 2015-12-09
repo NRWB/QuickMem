@@ -216,12 +216,8 @@ function flipCard() {
 function nextCard() {
 	document.getElementById('compareBtn').style.visibility = 'hidden';
 	document.getElementById('resultBtn').style.visibility = 'hidden';	
-	var currentIndex = index;
-	var category = currentIndex.slice(0, -1);
-	var num = currentIndex.slice(-1);
-	num = parseInt(num);
-	num += 1;
-	currentIndex = category + num.toString();
+	var num = getNumIndex() + 1;
+	var currentIndex = data['subtopic'].toLowerCase() + num.toString();
 	if (cards[currentIndex] != undefined) {
 		index = currentIndex;
 		document.getElementById('type').innerHTML = "Answer:";
@@ -242,12 +238,8 @@ function nextCard() {
 function prevCard() {
 	document.getElementById('compareBtn').style.visibility = 'hidden';
 	document.getElementById('resultBtn').style.visibility = 'hidden';
-	var currentIndex = index;
-	var category = currentIndex.slice(0, -1);
-	var num = currentIndex.slice(-1);
-	num = parseInt(num);
-	num -= 1;
-	currentIndex = category + num.toString();
+	var num = getNumIndex() - 1;
+	var currentIndex = data['subtopic'].toLowerCase() + num.toString();
 	if (cards[currentIndex] != undefined) {
 		index = currentIndex;
 		document.getElementById('type').innerHTML = "Answer:";
@@ -335,6 +327,5 @@ function getNumIndex(){
 	var subtopic = data.subtopic.toLowerCase();
 	var stringInt = index.replace(subtopic, "");
 	stringInt = parseInt(stringInt);
-	
 	return stringInt;
 }

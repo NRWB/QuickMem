@@ -27,7 +27,7 @@ The npm JS is the main javascript package manager for the QuickMem Web Applicati
 jQuery is a large part in which the QuickMem Web Application relies on for a javascript library.
 
 ### Spin JS
-<img src="https://github.com/NRWB/QuickMem/raw/master/public_html/img/proj/logo_spin.jpeg">
+<img src="https://github.com/NRWB/QuickMem/raw/master/public_html/img/proj/logo_spin.jpg">
 <br>
 The Spin JS is a loading spinner feature used with the QuickMem Web Application.
 

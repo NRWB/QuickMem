@@ -10,6 +10,8 @@ Uses Firebase Bootstrap, DB, jQuery, NPM, and Spin.
 
 ## License
 <undecided, likely GNU GPL>
+GNU GENERAL PUBLIC LICENSE
+See the LICENSE file for further information regarding the GNU GPL specifications.
 
 ## Contact
 Name | Email
@@ -25,3 +27,4 @@ Nick | nick.bell7@live.com
 Documentation depicting the source code of the project. This information provides code doc that has enough information. More information under the doc/out/ folder path.
 
 ## Project Setup / Install
+Move the public_html to the root web directory.

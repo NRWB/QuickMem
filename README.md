@@ -6,13 +6,30 @@ Ankit, Caleb, David, Joon, Kuo, Nick
 ## Description
 A web application project that helps to keep computer science material memorized. Project slogan: "Keeping memorized things memorized"
 
+### Firebase
 <img src="http://firebase.github.io/firebase-simple-login/img/firebase_os_logo.png">
+<br>
+The Firebase online database service helps access content for the quantity of notecards used with this QuickMem Web Application.
+
+### Bootstrap
 <img src="http://bmdm.com/wp-content/uploads/bootstrap.png">
-<img src="https://pbs.twimg.com/profile_images/59268975/jquery_avatar_400x400.png" height="150" width="150">
+<br>
+The Bootstrap portion of the QuickMem Web Application helps keep a dynamic display, although the main target display is for iOS iPhone 6/6s.
+
+### npm JS
 <img src="https://www.npmjs.com/static/images/npm-logo.svg" height="100" width="300">
+<br>
+The npm JS is the main javascript package manager for the QuickMem Web Application.
+
+### jQuery
+<img src="https://pbs.twimg.com/profile_images/59268975/jquery_avatar_400x400.png" height="150" width="150">
+<br>
+jQuery is a large part in which the QuickMem Web Application relies on for a javascript library.
+
+### Spin JS
 <img src="http://spin.js.org/assets/preview.jpg">
 <br>
-Uses Firebase, Bootstrap, jQuery, npm JS, and Spin JS.
+The Spin JS is a loading spinner feature used with the QuickMem Web Application.
 
 ## License
 <undecided, likely GNU GPL>

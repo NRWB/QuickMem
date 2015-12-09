@@ -29,6 +29,9 @@ window.onload = function() {
  */
 var myFirebaseRef = new Firebase("https://quickmem.firebaseio.com/");
 
+var isRead = [];
+var currDiff = 3;
+
 /**
  * @desc NONE
  * @global
@@ -88,6 +91,7 @@ var lower_topic = data['subtopic'].toLowerCase();
  */
 function selectRating() {
 	console.log(this.value);
+	//reorderCards();
 	document.getElementById('resultBtn').style.visibility = 'visible';
 	document.getElementById('option').innerHTML = this.value;
 	document.getElementById('compareBtn').style.visibility = 'visible';
@@ -119,10 +123,18 @@ function showCompare() {
  */
 function initializeCard() {
 	myFirebaseRef.child("notecards/" + data['id']).once("value", function(snap) {
+		currDiff = 3;
+		isRead = [];
 		index = lower_topic + "1";
 		document.getElementById("title").innerHTML = data['subtopic'];
 		console.log(snap.val());
 		cards = snap.val();
+		
+		var i;
+		for(i = 0; i < cards.length; i++){
+			isRead.push(false);
+		}
+		
 		document.getElementById('type').innerHTML = "Question:";
 		document.getElementById('myModalLabel').innerHTML = "Question:";
 		var newFront = cards[index].front.replace(/&amp;/g, "&").replace(/&gt;/g, ">").replace(/&lt;/g, "<").replace(/~~/g, "<br>");
@@ -283,4 +295,31 @@ function setLoader() {
 	}
 	var target = document.getElementById('loading');
 	spinner = new Spinner(opts).spin(target);
+}
+
+/**
+ * @function reorderCards
+ * @public
+ * @global
+ * @returns NONE
+ * @desc Determines what card is the best match for the user, swaps it to become the next element,
+ * @post Modifies currDiff, isRead
+ * @param NONE
+ * @example NONE
+ */
+ 
+ function reorderCards(feedBack){
+	var temp = getNumIndex();
+	// first, set the current card to read
+	if(feedBack < currDiff){
+		
+	}
+}
+
+function getNumIndex(){
+	var subtopic = data.subtopic.toLowerCase();
+	var stringInt = index.replace(subtopic, "");
+	stringInt = parseInt(stringInt);
+	
+	return stringInt;
 }

@@ -91,6 +91,7 @@ var lower_topic = data['subtopic'].toLowerCase();
  */
 function selectRating() {
 	console.log(this.value);
+	fillStars(this.value);
 	//reorderCards();
 	document.getElementById('resultBtn').style.visibility = 'visible';
 	document.getElementById('option').innerHTML = this.value;
@@ -337,4 +338,22 @@ function getNumIndex(){
 function clearStars() {
 	var starSpan = document.getElementById('rating').getElementsByTagName('label');
 	console.log(starSpan);
+	for (var i = starSpan.length - 1; i >= 0 ; i--) {
+		console.log(starSpan[i]);
+		starSpan[i].style.background = "url('http://kubyshkin.ru/samples/star-rating/star.png') 0 -16px";
+	}
+}
+
+function fillStars(rating) {
+	var starSpan = document.getElementById('rating').getElementsByTagName('label');
+	console.log(starSpan);
+	for (var i = starSpan.length - 1; i >= 0 ; i--) {
+		console.log(starSpan[i]);
+		console.log(starSpan[i].getAttribute('value'));
+		if (starSpan[i].getAttribute('value') <= parseInt(rating)) {
+			starSpan[i].style.background = "url('http://kubyshkin.ru/samples/star-rating/star.png') 0 0";
+		} else {
+			starSpan[i].style.background = "url('http://kubyshkin.ru/samples/star-rating/star.png') 0 -16px";
+		}
+	}
 }

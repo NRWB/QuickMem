@@ -111,21 +111,23 @@ function showCompare() {
 	var rating = document.getElementById('option').innerHTML;
 	var card = cards[index];
 	console.log(card);
-	var data = {
+	$('#graphModal').on('shown.bs.modal', function (e) {
+	  var data = {
 	    labels: ["Your rating", "Average rating"],
 	    datasets: [
 	        {
 	            label: "My First dataset",
-	            fillColor: "rgba(220,220,220,0.5)",
+	            fillColor: "#427EEF",
 	            strokeColor: "rgba(220,220,220,0.8)",
 	            highlightFill: "rgba(220,220,220,0.75)",
 	            highlightStroke: "rgba(220,220,220,1)",
-	            data: [rating, card.difficulty]
+	            data: [parseInt(rating), card.difficulty]
 	        }
 	    ]
-	}
-	var ctx = document.getElementById("myChart").getContext("2d");
-	var myBarChart = new Chart(ctx).Bar(data);
+		};
+		var ctx = document.getElementById("myChart").getContext("2d");
+		var myBarChart = new Chart(ctx).Bar(data);
+	});
 }
 
 /**
@@ -221,6 +223,7 @@ function nextCard() {
 	if (cards[currentIndex] != undefined) {
 		index = currentIndex;
 		document.getElementById('type').innerHTML = "Answer:";
+		clearStars();
 		flipCard();
 	} else {
 		alert("There are no more cards in this deck!");
@@ -243,6 +246,7 @@ function prevCard() {
 	if (cards[currentIndex] != undefined) {
 		index = currentIndex;
 		document.getElementById('type').innerHTML = "Answer:";
+		clearStars();
 		flipCard();
 	} else {
 		alert("You have reached the beginning of this deck!");
@@ -328,4 +332,9 @@ function getNumIndex(){
 	var stringInt = index.replace(subtopic, "");
 	stringInt = parseInt(stringInt);
 	return stringInt;
+}
+
+function clearStars() {
+	var starSpan = document.getElementById('rating').getElementsByTagName('label');
+	console.log(starSpan);
 }

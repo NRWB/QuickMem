@@ -60,7 +60,7 @@
 
       </div>
       
-        <span class="rating">
+        <span id="rating" class="rating">
         <input type="radio" class="rating-input"
             id="rating-input-1-5" name="rating-input-1" value='5'/>
         <label for="rating-input-1-5" class="rating-star"></label>
@@ -101,7 +101,6 @@
         </div>
       </div>
     </div>
-
     <!-- Modal -->
     <div class="modal fade" id="graphModal" tabindex="-1" role="dialog" aria-labelledby="graphModalLabel">
       <div class="modal-dialog" role="document">
@@ -111,7 +110,7 @@
             <h4 class="modal-title" id="graphModalLabel">How did you do against others?</h4>
           </div>
           <div id='graphModalBody' class="modal-body">
-            <canvas id="myChart" width="400px" height="400px"></canvas>
+            <canvas id="myChart" width="300px" height="300px"></canvas>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

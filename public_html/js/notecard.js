@@ -90,12 +90,8 @@ var lower_topic = data['subtopic'].toLowerCase();
  */
 function selectRating() {
 	console.log(this.value);
-<<<<<<< HEAD
 	calibrateDiff(this.value);
-=======
 	fillStars(this.value);
-	//reorderCards();
->>>>>>> origin/master
 	document.getElementById('resultBtn').style.visibility = 'visible';
 	document.getElementById('option').innerHTML = this.value;
 	document.getElementById('compareBtn').style.visibility = 'visible';

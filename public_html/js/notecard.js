@@ -90,7 +90,12 @@ var lower_topic = data['subtopic'].toLowerCase();
  */
 function selectRating() {
 	console.log(this.value);
+<<<<<<< HEAD
 	calibrateDiff(this.value);
+=======
+	fillStars(this.value);
+	//reorderCards();
+>>>>>>> origin/master
 	document.getElementById('resultBtn').style.visibility = 'visible';
 	document.getElementById('option').innerHTML = this.value;
 	document.getElementById('compareBtn').style.visibility = 'visible';
@@ -107,9 +112,26 @@ function selectRating() {
 function showCompare() {
 	document.getElementById('compareBtn').style.visibility = 'hidden';
 	console.log(cards);
+	var rating = document.getElementById('option').innerHTML;
 	var card = cards[index];
 	console.log(card);
-
+	$('#graphModal').on('shown.bs.modal', function (e) {
+	  var data = {
+	    labels: ["Your rating", "Average rating"],
+	    datasets: [
+	        {
+	            label: "My First dataset",
+	            fillColor: "#427EEF",
+	            strokeColor: "rgba(220,220,220,0.8)",
+	            highlightFill: "rgba(220,220,220,0.75)",
+	            highlightStroke: "rgba(220,220,220,1)",
+	            data: [parseInt(rating), card.difficulty]
+	        }
+	    ]
+		};
+		var ctx = document.getElementById("myChart").getContext("2d");
+		var myBarChart = new Chart(ctx).Bar(data);
+	});
 }
 
 /**
@@ -195,16 +217,13 @@ function flipCard() {
 function nextCard() {
 	document.getElementById('compareBtn').style.visibility = 'hidden';
 	document.getElementById('resultBtn').style.visibility = 'hidden';	
-	var currentIndex = index;
-	var category = currentIndex.slice(0, -1);
-	var num = currentIndex.slice(-1);
-	num = parseInt(num);
-	num += 1;
-	currentIndex = category + num.toString();
+	var num = getNumIndex() + 1;
+	var currentIndex = data['subtopic'].toLowerCase() + num.toString();
 	if (cards[currentIndex] != undefined) {
 		reorderCards();
 		index = currentIndex;
 		document.getElementById('type').innerHTML = "Answer:";
+		clearStars();
 		flipCard();
 	} else {
 		alert("There are no more cards in this deck!");
@@ -222,15 +241,12 @@ function nextCard() {
 function prevCard() {
 	document.getElementById('compareBtn').style.visibility = 'hidden';
 	document.getElementById('resultBtn').style.visibility = 'hidden';
-	var currentIndex = index;
-	var category = currentIndex.slice(0, -1);
-	var num = currentIndex.slice(-1);
-	num = parseInt(num);
-	num -= 1;
-	currentIndex = category + num.toString();
+	var num = getNumIndex() - 1;
+	var currentIndex = data['subtopic'].toLowerCase() + num.toString();
 	if (cards[currentIndex] != undefined) {
 		index = currentIndex;
 		document.getElementById('type').innerHTML = "Answer:";
+		clearStars();
 		flipCard();
 	} else {
 		alert("You have reached the beginning of this deck!");
@@ -362,10 +378,10 @@ function getNumIndex(assocIdx){
 	var subtopic = data.subtopic.toLowerCase();
 	var stringInt = assocIdx.replace(subtopic, "");
 	stringInt = parseInt(stringInt);
-	
 	return stringInt;
 }
 
+<<<<<<< HEAD
 // concatinate the subtopic string with the numerical index to create index for associative array
 function createAssocIndex(numIdx){
 	var subtopic = data.subtopic.toLowerCase();
@@ -379,4 +395,27 @@ function incAssocIdx(assocIndex){
 	++num;
 	
 	return createAssocIndex(num);
+=======
+function clearStars() {
+	var starSpan = document.getElementById('rating').getElementsByTagName('label');
+	console.log(starSpan);
+	for (var i = starSpan.length - 1; i >= 0 ; i--) {
+		console.log(starSpan[i]);
+		starSpan[i].style.background = "url('http://kubyshkin.ru/samples/star-rating/star.png') 0 -16px";
+	}
+}
+
+function fillStars(rating) {
+	var starSpan = document.getElementById('rating').getElementsByTagName('label');
+	console.log(starSpan);
+	for (var i = starSpan.length - 1; i >= 0 ; i--) {
+		console.log(starSpan[i]);
+		console.log(starSpan[i].getAttribute('value'));
+		if (starSpan[i].getAttribute('value') <= parseInt(rating)) {
+			starSpan[i].style.background = "url('http://kubyshkin.ru/samples/star-rating/star.png') 0 0";
+		} else {
+			starSpan[i].style.background = "url('http://kubyshkin.ru/samples/star-rating/star.png') 0 -16px";
+		}
+	}
+>>>>>>> origin/master
 }

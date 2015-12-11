@@ -106,7 +106,7 @@ function selectRating() {
  * @example NONE
  */
 function showCompare() {
-	document.getElementById('compareBtn').style.visibility = 'hidden';
+	// document.getElementById('compareBtn').style.visibility = 'hidden';
 	console.log(cards);
 	var rating = document.getElementById('option').innerHTML;
 	var card = cards[index];
@@ -143,7 +143,7 @@ function showCompare() {
 function initializeCard() {
 	myFirebaseRef.child("notecards/" + data['id']).once("value", function(snap) {
 		currDiff = 3;
-		
+		document.getElementById("cardNum").innerHTML = 1;
 		index = lower_topic + "1";
 		document.getElementById("title").innerHTML = data['subtopic'];
 		console.log(snap.val());
@@ -213,11 +213,11 @@ function flipCard() {
  * @example NONE
  */
 function nextCard() {
-	document.getElementById('compareBtn').style.visibility = 'hidden';
-	document.getElementById('resultBtn').style.visibility = 'hidden';
-	
 	var currentIndex = incAssocIdx(index);
 	if (cards[currentIndex] != undefined) {
+		document.getElementById('compareBtn').style.visibility = 'hidden';
+		document.getElementById('resultBtn').style.visibility = 'hidden';
+		document.getElementById("cardNum").innerHTML = getNumIndex(index)+ 1;
 		reorderCards();
 		index = currentIndex;
 		document.getElementById('type').innerHTML = "Answer:";
@@ -237,11 +237,11 @@ function nextCard() {
  * @example NONE
  */
 function prevCard() {
-	document.getElementById('compareBtn').style.visibility = 'hidden';
-	document.getElementById('resultBtn').style.visibility = 'hidden';
-	
 	var currentIndex = decAssocIdx(index);
 	if (cards[currentIndex] != undefined) {
+		document.getElementById('compareBtn').style.visibility = 'hidden';
+		document.getElementById('resultBtn').style.visibility = 'hidden';
+		document.getElementById("cardNum").innerHTML = getNumIndex(index) - 1;
 		index = currentIndex;
 		document.getElementById('type').innerHTML = "Answer:";
 		clearStars();

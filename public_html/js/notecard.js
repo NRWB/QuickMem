@@ -90,8 +90,8 @@ var lower_topic = data['subtopic'].toLowerCase();
  */
 function selectRating() {
 	console.log(this.value);
-	calibrateDiff(this.value);
 	fillStars(this.value);
+	calibrateDiff(this.value);
 	document.getElementById('resultBtn').style.visibility = 'visible';
 	document.getElementById('option').innerHTML = this.value;
 	document.getElementById('compareBtn').style.visibility = 'visible';
@@ -111,6 +111,8 @@ function showCompare() {
 	var rating = document.getElementById('option').innerHTML;
 	var card = cards[index];
 	console.log(card);
+	console.log(rating);
+	console.log(index);
 	$('#graphModal').on('shown.bs.modal', function (e) {
 	  var data = {
 	    labels: ["Your rating", "Average rating"],
@@ -212,9 +214,9 @@ function flipCard() {
  */
 function nextCard() {
 	document.getElementById('compareBtn').style.visibility = 'hidden';
-	document.getElementById('resultBtn').style.visibility = 'hidden';	
-	var num = getNumIndex() + 1;
-	var currentIndex = data['subtopic'].toLowerCase() + num.toString();
+	document.getElementById('resultBtn').style.visibility = 'hidden';
+	
+	var currentIndex = incAssocIdx(index);
 	if (cards[currentIndex] != undefined) {
 		reorderCards();
 		index = currentIndex;
@@ -237,8 +239,8 @@ function nextCard() {
 function prevCard() {
 	document.getElementById('compareBtn').style.visibility = 'hidden';
 	document.getElementById('resultBtn').style.visibility = 'hidden';
-	var num = getNumIndex() - 1;
-	var currentIndex = data['subtopic'].toLowerCase() + num.toString();
+	
+	var currentIndex = decAssocIdx(index);
 	if (cards[currentIndex] != undefined) {
 		index = currentIndex;
 		document.getElementById('type').innerHTML = "Answer:";
@@ -317,9 +319,7 @@ function setLoader() {
  
  // calibrate the current difficulty based on feedback, also sets current idx to read
  function calibrateDiff(feedBack){
-	//get the current cards numerical index
-	var currIdx = getNumIndex(index);
-	
+
 	// recalibrate current difficulty
 	// if feedback is 3, no need to recalibrate
 	if(feedBack < 3){
@@ -391,6 +391,15 @@ function incAssocIdx(assocIndex){
 	++num;
 	
 	return createAssocIndex(num);
+}
+
+// incriment associative index
+function decAssocIdx(assocIndex){
+	var num = getNumIndex(assocIndex);
+	--num;
+	
+	return createAssocIndex(num);
+}
 
 function clearStars() {
 	var starSpan = document.getElementById('rating').getElementsByTagName('label');

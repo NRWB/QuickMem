@@ -9,6 +9,7 @@
 window.onload = function() {
 	document.getElementById("myButton").onclick = clearArray;
 	document.getElementById('searchBtn').onclick = whichSearch;
+	document.getElementById('backBtn').onclick = clearArray;
 
 	if (!data || data.path[1] == undefined) {
 		loadCategories();
@@ -40,6 +41,8 @@ var data = JSON.parse(sessionStorage.firebase);
  * @example NONE
  */
 function loadCategories() {
+	document.getElementById('title').innerHTML = 'Choose a Category';
+	document.getElementById('backBtn').setAttribute("disabled", "disabled");
 	myFirebaseRef.child("categories").on("child_added", function(snapshot) {
     	console.log(snapshot.val());
 		var topic = snapshot.val();
@@ -66,6 +69,7 @@ function loadCategories() {
  * @example NONE
  */
 function toCategory(topic) {
+	document.getElementById('backBtn').removeAttribute("disabled");
 	var div = document.getElementById('buttonGroup');
 	clearButtons(div);
 	console.log(topic);

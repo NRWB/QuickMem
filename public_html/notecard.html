@@ -27,17 +27,27 @@
   </head>
   <body>
   
-    <div class="panel panel-header">
+<!--     <div class="panel panel-header">
 	  <div class="container">
-              <p>
               	<a id="back" input class="btn btn-link"  action="action" type="button" value="Back" onclick="window.history.go(-1); return false;" />
            	<span class="glyphicon btn-glyphicon glyphicon-arrow-left img-circle text-muted"></span> 
           	</a>
-              	
-                <button id="myButton"  class="btn btn-link" >QuickMem</button>
-              </p>
+            <div id='titlebtn'>
+              <button id="myButton"  class="btn btn-link" >QuickMem</button>
+            </div>  
   	  </div>
-  	</div>
+  	</div> -->
+    <nav id='header' class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header pull-left">
+          <a class="navbar-brand navbar-right" href="#">
+            <img alt="Brand" src="img/ProjectLogoIcon.ico" height='30px'>
+          </a>
+          <a id="myButton" class="navbar-brand" href="#">QuickMem</a>
+        </div>
+        <button id='back' type="button" class="btn btn-default navbar-btn pull-right" onclick="window.history.go(-1); return false;">Back</button>
+      </div>
+    </nav>
 
     <h1 id='title'></h1>
     <div id="notecard">

@@ -20,7 +20,6 @@ and open the template in the editor.
   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> -->
 
   <link rel="stylesheet" type="text/css" href="css/style.css">
-  <!-- <link rel="stylesheet" type="text/css" href="css/notecard.css"> -->
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -37,13 +36,17 @@ and open the template in the editor.
 
   <body class="home">
   
-    <div class="panel panel-header">
-	  <div class="container">
-              <p>
-                  <button id="myButton"  class="btn btn-link" >QuickMem</button>
-              </p>
-  	  </div>
+    <nav id='header' class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header pull-left">
+          <a class="navbar-brand navbar-right" href="#">
+            <img alt="Brand" src="img/ProjectLogoIcon.ico" height='30px'>
+          </a>
+          <a id="myButton" class="navbar-brand" href="#">QuickMem</a>
+        </div>
+        <button id='backBtn' type="button" class="btn btn-default navbar-btn pull-right">Back</button>
       </div>
+    </nav>
 
     <!-- Search bar -->
     <div id="search" class="container">
@@ -60,6 +63,7 @@ and open the template in the editor.
         </div>
       </div>
     </div>
+    
     <h1 id="title"></h1>
 
     <div class="panel panel-default">

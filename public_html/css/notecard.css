@@ -45,6 +45,12 @@
   z-index: 10;
 }
 
+#cardNum {
+  float: left;
+  margin-left: 3px;
+  margin-top: 3px;
+}
+
 #expand {
   position: absolute;
   bottom: 1%;

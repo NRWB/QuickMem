@@ -381,7 +381,7 @@ function getNumIndex(assocIdx){
 	return stringInt;
 }
 
-<<<<<<< HEAD
+
 // concatinate the subtopic string with the numerical index to create index for associative array
 function createAssocIndex(numIdx){
 	var subtopic = data.subtopic.toLowerCase();
@@ -395,7 +395,7 @@ function incAssocIdx(assocIndex){
 	++num;
 	
 	return createAssocIndex(num);
-=======
+
 function clearStars() {
 	var starSpan = document.getElementById('rating').getElementsByTagName('label');
 	console.log(starSpan);
@@ -417,5 +417,4 @@ function fillStars(rating) {
 			starSpan[i].style.background = "url('http://kubyshkin.ru/samples/star-rating/star.png') 0 -16px";
 		}
 	}
->>>>>>> origin/master
 }

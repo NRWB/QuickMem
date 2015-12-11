@@ -29,7 +29,6 @@ window.onload = function() {
  */
 var myFirebaseRef = new Firebase("https://quickmem.firebaseio.com/");
 
-var isRead = [];
 var currDiff = 3;
 
 /**
@@ -91,7 +90,7 @@ var lower_topic = data['subtopic'].toLowerCase();
  */
 function selectRating() {
 	console.log(this.value);
-	//reorderCards();
+	calibrateDiff(this.value);
 	document.getElementById('resultBtn').style.visibility = 'visible';
 	document.getElementById('option').innerHTML = this.value;
 	document.getElementById('compareBtn').style.visibility = 'visible';
@@ -124,16 +123,11 @@ function showCompare() {
 function initializeCard() {
 	myFirebaseRef.child("notecards/" + data['id']).once("value", function(snap) {
 		currDiff = 3;
-		isRead = [];
+		
 		index = lower_topic + "1";
 		document.getElementById("title").innerHTML = data['subtopic'];
 		console.log(snap.val());
 		cards = snap.val();
-		
-		var i;
-		for(i = 0; i < cards.length; i++){
-			isRead.push(false);
-		}
 		
 		document.getElementById('type').innerHTML = "Question:";
 		document.getElementById('myModalLabel').innerHTML = "Question:";
@@ -208,6 +202,7 @@ function nextCard() {
 	num += 1;
 	currentIndex = category + num.toString();
 	if (cards[currentIndex] != undefined) {
+		reorderCards();
 		index = currentIndex;
 		document.getElementById('type').innerHTML = "Answer:";
 		flipCard();
@@ -308,18 +303,80 @@ function setLoader() {
  * @example NONE
  */
  
- function reorderCards(feedBack){
-	var temp = getNumIndex();
-	// first, set the current card to read
-	if(feedBack < currDiff){
-		
+ // calibrate the current difficulty based on feedback, also sets current idx to read
+ function calibrateDiff(feedBack){
+	//get the current cards numerical index
+	var currIdx = getNumIndex(index);
+	
+	// recalibrate current difficulty
+	// if feedback is 3, no need to recalibrate
+	if(feedBack < 3){
+		if(currDiff < 5){
+			++currDiff;
+		}
+	}else if(feedBack > 3){
+		if(currDiff > 1){
+			--currDiff;
+		}
 	}
 }
 
-function getNumIndex(){
+// assumption, difficulty is calibrated
+function findNextCard(){
+
+	// the next card, target of our swap
+	var nextIdx = createAssocIndex(getNumIndex(index) + 1);
+	
+	// the card we wish to put next
+	var targetToSwap = getNumIndex(index) + 1;
+	
+	// current associative index
+	var assocIndex = nextIdx;
+	
+	// to temporarily hold the swap target
+	var temp = null;
+	
+	while(true){
+	
+		if (cards[assocIndex] === undefined) {
+			break;
+		}
+		// walk and find target
+		if(cards[assocIndex].difficulty === currDiff){
+			temp = cards[assocIndex];
+			cards[assocIndex] = cards[nextIdx];
+			cards[nextIdx] = temp;
+			break;
+		}
+		assocIndex = incAssocIdx(assocIndex);
+
+	}
+}
+
+function reorderCards(){
+	//calibrateDiff(feedBack);
+	findNextCard();
+}
+
+function getNumIndex(assocIdx){
 	var subtopic = data.subtopic.toLowerCase();
-	var stringInt = index.replace(subtopic, "");
+	var stringInt = assocIdx.replace(subtopic, "");
 	stringInt = parseInt(stringInt);
 	
 	return stringInt;
+}
+
+// concatinate the subtopic string with the numerical index to create index for associative array
+function createAssocIndex(numIdx){
+	var subtopic = data.subtopic.toLowerCase();
+	
+	return subtopic + numIdx;
+}
+
+// incriment associative index
+function incAssocIdx(assocIndex){
+	var num = getNumIndex(assocIndex);
+	++num;
+	
+	return createAssocIndex(num);
 }
